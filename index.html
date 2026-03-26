@@ -1,40 +1,418 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Jeongwoo Kim | Data Science Portfolio</title>
-<style>
-body{
-font-family: Arial;
-margin:40px;
-max-width:900px;
-}
-h1{font-size:40px;}
-h2{margin-top:40px;}
-</style>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeongwoo Kim | Data Science Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .nav-links a:hover {
+      color: #111827;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin: 0 0 18px;
+      color: #111827;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #4b5563;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #d1d5db;
+      color: #111827;
+    }
+
+    .btn-secondary:hover {
+      background: #f3f4f6;
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    .hero-card p {
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 30px 0 70px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      margin-bottom: 30px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #4b5563;
+      margin-bottom: 16px;
+      font-size: 0.96rem;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tools span {
+      font-size: 0.8rem;
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .resume-box {
+      margin-top: 18px;
+    }
+
+    .contact-box p {
+      margin: 8px 0;
+    }
+
+    .footer {
+      border-top: 1px solid #e5e7eb;
+      background: white;
+      padding: 24px 0;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .projects-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        width: 92%;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<h1>Jeongwoo Kim</h1>
-<p>Data Science student at Arizona State University focused on machine learning and data analysis.</p>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">Jeongwoo Kim</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<h2>Projects</h2>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Data Science Portfolio</div>
+        <h1>Data Science student focused on machine learning, data engineering, and scalable analytics.</h1>
+        <p>
+          I am a Data Science student at Arizona State University with experience in machine learning, ETL workflows, cloud based processing, and large scale data analysis using Python, SQL, AWS, and Google Cloud.
+        </p>
+        <div class="button-group">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact</a>
+        </div>
+      </div>
 
-<h3>Credit Risk Prediction</h3>
-<p>Built a PySpark machine learning pipeline to predict loan default risk with ROC AUC ≈ 0.92.</p>
+      <div class="hero-card">
+        <h3>Quick Info</h3>
+        <p><strong>Education:</strong> Arizona State University</p>
+        <p><strong>Major:</strong> B.S. Data Science</p>
+        <p><strong>Graduation:</strong> May 2026</p>
+        <p><strong>GPA:</strong> 4.00</p>
+        <p><strong>Focus:</strong> Machine Learning, Data Pipelines, SQL, Cloud Analytics</p>
+      </div>
+    </div>
+  </header>
 
-<h3>Amazon Review Sentiment Classification</h3>
-<p>Developed an NLP pipeline analyzing 568K+ Amazon reviews using TF-IDF and Logistic Regression.</p>
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">A few projects that reflect my interests in machine learning, analytics, and data systems.</p>
 
-<h3>Bot Detection Model</h3>
-<p>Built a decision tree classifier to detect bot accounts using behavioral features.</p>
+      <div class="projects-grid">
+        <div class="card">
+          <div class="tag">Machine Learning</div>
+          <h3>Credit Risk Prediction</h3>
+          <p>
+            Built a PySpark machine learning pipeline to predict loan default risk from financial and credit attributes. Trained and evaluated Logistic Regression and Random Forest models and achieved ROC AUC of about 0.92.
+          </p>
+          <div class="tools">
+            <span>PySpark</span>
+            <span>Python</span>
+            <span>Dataproc</span>
+            <span>Machine Learning</span>
+          </div>
+        </div>
 
-<h2>Contact</h2>
+        <div class="card">
+          <div class="tag">NLP</div>
+          <h3>Amazon Review Sentiment Classification</h3>
+          <p>
+            Analyzed more than 568K Amazon product reviews and developed a binary sentiment classification pipeline using text preprocessing, TF IDF features, and model comparison between Naive Bayes and Logistic Regression.
+          </p>
+          <div class="tools">
+            <span>Python</span>
+            <span>NLP</span>
+            <span>scikit-learn</span>
+            <span>TF IDF</span>
+          </div>
+        </div>
 
-<p>
-Email: jwjw091912@gmail.com<br>
-LinkedIn: linkedin.com/in/jadoonee
-</p>
+        <div class="card">
+          <div class="tag">Classification</div>
+          <h3>Bot Detection Model</h3>
+          <p>
+            Built a decision tree model to classify social media accounts as bots or humans. Performed exploratory data analysis, handled class imbalance, and visualized feature importance and model performance.
+          </p>
+          <div class="tools">
+            <span>R</span>
+            <span>Decision Tree</span>
+            <span>EDA</span>
+            <span>Data Visualization</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tag">Internship Experience</div>
+          <h3>ETL and Data Pipeline Work</h3>
+          <p>
+            Built automated ETL workflows in Python and AWS S3 to standardize heterogeneous geospatial capacity data into a unified analytics ready schema and supported downstream API and analytics use cases.
+          </p>
+          <div class="tools">
+            <span>Python</span>
+            <span>AWS S3</span>
+            <span>ETL</span>
+            <span>Data Validation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="card">
+          <h3>Background</h3>
+          <p>
+            I am interested in using data to solve practical problems through machine learning, structured analysis, and clear communication. My experience includes coursework, internship projects, and technical projects involving predictive modeling, SQL analysis, ETL workflows, and cloud based tools.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Technical Skills</h3>
+          <p><strong>Languages:</strong> Python, R, SQL</p>
+          <p><strong>Libraries and Tools:</strong> pandas, numpy, scikit-learn, PySpark, Tableau</p>
+          <p><strong>Cloud and Systems:</strong> Google Cloud Dataproc, AWS S3, Docker</p>
+          <div class="resume-box">
+            <a class="btn btn-primary" href="#" target="_blank">Resume Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="card contact-box">
+        <p><strong>Email:</strong> jwjw091912@gmail.com</p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/jadoonee" target="_blank">linkedin.com/in/jadoonee</a></p>
+        <p><strong>Location:</strong> Tempe, Arizona</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Jeongwoo Kim. All rights reserved.
+  </footer>
 
 </body>
 </html>
