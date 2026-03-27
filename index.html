@@ -429,6 +429,120 @@
     padding: 1rem;
   }
 }
+
+.proj-card {
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.45);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.modal-subtitle {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.modal-section {
+  margin-bottom: 1.2rem;
+}
+
+.modal-section h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+}
+
+.modal-section p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.modal-btn {
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.modal-btn.primary {
+  background: var(--c1);
+  color: white;
+}
+
+.modal-btn.secondary {
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text);
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .modal-box {
+    padding: 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+}
  
 </style>
 </head>
@@ -577,26 +691,26 @@
   <p class="section-label">What I've built</p>
   <h2 class="section-title">Featured <span>Projects</span></h2>
   <div class="projects-grid">
- 
-    <div class="proj-card">
+     
+    <div class="proj-card" data-project="credit-risk">
       <div class="proj-icon" style="background:rgba(108,71,255,0.15);">🤖</div>
       <div class="proj-name">Credit Risk Prediction</div>
-      <div class="proj-desc">ML pipeline using PySpark to predict loan default risk. Achieved ROC AUC ≈ 0.92. Scaled to GCP Dataproc for large-scale distributed processing.</div>
+      <div class="proj-desc">ML pipeline using PySpark to predict loan default risk. Achieved ROC AUC ≈ 0.92. Scaled to GCP Dataproc for large scale distributed processing.</div>
       <div class="proj-tags">
         <span class="tag">PySpark</span><span class="tag">GCP Dataproc</span><span class="tag">Random Forest</span><span class="tag">Logistic Reg.</span>
       </div>
     </div>
- 
-    <div class="proj-card">
+    
+    <div class="proj-card" data-project="amazon-sentiment">
       <div class="proj-icon" style="background:rgba(0,217,192,0.15);">💬</div>
       <div class="proj-name">Amazon Review Sentiment</div>
-      <div class="proj-desc">Binary sentiment classification on 568K+ reviews using NLP pipeline with TF-IDF. Boosted Naive Bayes negative F1 from 0.26 → 0.71 via hyperparameter tuning.</div>
+      <div class="proj-desc">Binary sentiment classification on 568K+ reviews using NLP pipeline with TF IDF. Boosted Naive Bayes negative F1 from 0.26 → 0.71 via hyperparameter tuning.</div>
       <div class="proj-tags">
-        <span class="tag">NLP</span><span class="tag">TF-IDF</span><span class="tag">scikit-learn</span><span class="tag">Python</span>
+        <span class="tag">NLP</span><span class="tag">TF IDF</span><span class="tag">scikit-learn</span><span class="tag">Python</span>
       </div>
     </div>
- 
-    <div class="proj-card">
+    
+    <div class="proj-card" data-project="bot-detection">
       <div class="proj-icon" style="background:rgba(255,107,107,0.15);">🔍</div>
       <div class="proj-name">Bot Detection Model</div>
       <div class="proj-desc">EDA in R to identify class imbalance, then built a decision tree to classify accounts as bots or humans. Visualized feature importance for interpretability.</div>
@@ -604,16 +718,16 @@
         <span class="tag">R</span><span class="tag">Decision Tree</span><span class="tag">EDA</span><span class="tag">Kaggle</span>
       </div>
     </div>
-
-    <div class="proj-card">
+    
+    <div class="proj-card" data-project="regression-visualizer">
       <div class="proj-icon" style="background:rgba(255,179,71,0.15);">📊</div>
       <div class="proj-name">Interactive Regression Visualizer</div>
-      <div class="proj-desc">Interactive regression visualization app built with R Shiny and Plotly. Allows real-time exploration of regression models and data distributions.</div>
+      <div class="proj-desc">Interactive regression visualization app built with R Shiny and Plotly. Allows real time exploration of regression models and data distributions.</div>
       <div class="proj-tags">
         <span class="tag">R Shiny</span><span class="tag">Plotly</span><span class="tag">Data Viz</span><span class="tag">Regression</span>
       </div>
     </div>
- 
+
   </div>
 </section>
  
@@ -762,7 +876,36 @@
 <footer>
   <p>Jeongwoo Kim &nbsp;·&nbsp; <a href="https://linkedin.com/in/jadoonee">LinkedIn</a></p>
 </footer>
- 
+
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal">&times;</button>
+
+    <div class="modal-title" id="modalTitle">Project Title</div>
+    <div class="modal-subtitle" id="modalSubtitle">Short summary</div>
+
+    <div class="modal-section">
+      <h4>Overview</h4>
+      <p id="modalOverview"></p>
+    </div>
+
+    <div class="modal-section">
+      <h4>Key Result</h4>
+      <p id="modalResult"></p>
+    </div>
+
+    <div class="modal-section">
+      <h4>Tools</h4>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+
+    <div class="modal-actions">
+      <a href="#" target="_blank" class="modal-btn primary" id="modalGithub">View GitHub</a>
+      <button class="modal-btn secondary" id="modalCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
@@ -779,8 +922,90 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.15 });
- 
+
 document.querySelectorAll('.tl-item, .proj-card, .skill-pill').forEach(el => observer.observe(el));
+
+const projectData = {
+  "credit-risk": {
+    title: "Credit Risk Prediction",
+    subtitle: "PySpark based machine learning pipeline for loan default prediction.",
+    overview: "This project uses PySpark ML to build a scalable credit risk classification pipeline. I prepared features, trained multiple models, and evaluated performance for predicting loan default risk.",
+    result: "Achieved ROC AUC around 0.92 and scaled the workflow using GCP Dataproc for distributed processing.",
+    tags: ["PySpark", "GCP Dataproc", "Random Forest", "Logistic Regression"],
+    github: "https://github.com/lockyous/credit-risk-pyspark"
+  },
+  "amazon-sentiment": {
+    title: "Amazon Review Sentiment",
+    subtitle: "NLP based sentiment classification on large scale review data.",
+    overview: "This project classifies Amazon reviews into sentiment categories using TF IDF features and machine learning models in Python.",
+    result: "Improved the negative class F1 score from 0.26 to 0.71 through preprocessing and hyperparameter tuning on 568K plus reviews.",
+    tags: ["Python", "NLP", "TF IDF", "scikit-learn"],
+    github: "https://github.com/lockyous/amazon-sentiment-classification"
+  },
+  "bot-detection": {
+    title: "Bot Detection Model",
+    subtitle: "R based classification project for identifying bot accounts.",
+    overview: "I used exploratory data analysis in R to understand class imbalance and feature patterns, then trained a decision tree model to classify accounts as bots or humans.",
+    result: "Built an interpretable classification workflow and visualized feature importance to support model understanding.",
+    tags: ["R", "Decision Tree", "EDA", "Kaggle"],
+    github: "https://github.com/lockyous/bot-detection"
+  },
+  "regression-visualizer": {
+    title: "Interactive Regression Visualizer",
+    subtitle: "Interactive R Shiny app for exploring regression relationships.",
+    overview: "This project is an interactive visualization app built with R Shiny and Plotly. It allows users to explore regression patterns and data relationships in real time.",
+    result: "Created a user friendly interface for dynamic regression exploration and visual analytics.",
+    tags: ["R Shiny", "Plotly", "Data Visualization", "Regression"],
+    github: "https://github.com/lockyous/shiny-regression-visualizer"
+  }
+};
+
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalSubtitle = document.getElementById("modalSubtitle");
+const modalOverview = document.getElementById("modalOverview");
+const modalResult = document.getElementById("modalResult");
+const modalTags = document.getElementById("modalTags");
+const modalGithub = document.getElementById("modalGithub");
+const closeModal = document.getElementById("closeModal");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+document.querySelectorAll(".proj-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const key = card.dataset.project;
+    const project = projectData[key];
+    if (!project) return;
+
+    modalTitle.textContent = project.title;
+    modalSubtitle.textContent = project.subtitle;
+    modalOverview.textContent = project.overview;
+    modalResult.textContent = project.result;
+    modalGithub.href = project.github;
+
+    modalTags.innerHTML = "";
+    project.tags.forEach(tag => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = tag;
+      modalTags.appendChild(span);
+    });
+
+    modal.classList.add("active");
+  });
+});
+
+function closeProjectModal() {
+  modal.classList.remove("active");
+}
+
+closeModal.addEventListener("click", closeProjectModal);
+modalCloseBtn.addEventListener("click", closeProjectModal);
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeProjectModal();
+  }
+});
 </script>
 </body>
 </html>
