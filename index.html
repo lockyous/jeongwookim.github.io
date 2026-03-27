@@ -184,16 +184,28 @@
       animation: pulse 1.5s infinite;
     }
 
-    .hero-tag .dot:nth-child(1) {
-      animation-delay: 0s;
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 18px;
     }
 
-    .hero-tag .dot:nth-child(2) {
-      animation-delay: 0.3s;
+    .hero-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .hero-tag .dot:nth-child(3) {
-      animation-delay: 0.6s;
+    .hero-item:nth-child(1) .dot {
+      background: #00D9C0;
+    }
+
+    .hero-item:nth-child(2) .dot {
+      background: #6C47FF;
+    }
+
+    .hero-item:nth-child(3) .dot {
+      background: #FF6B6B;
     }
 
     @keyframes pulse {
@@ -1007,11 +1019,16 @@
 
       <div class="hero-content">
         <div class="hero-tag">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span style="margin-left:6px;">
-            Open to opportunities · Tempe, AZ · U.S. Permanent Resident
+          <span class="hero-item">
+            <span class="dot"></span> Open to opportunities
+          </span>
+
+          <span class="hero-item">
+            <span class="dot"></span> Tempe, AZ
+          </span>
+
+          <span class="hero-item">
+            <span class="dot"></span> U.S. Permanent Resident
           </span>
         </div>
 
