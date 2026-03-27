@@ -328,6 +328,108 @@
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.8rem; }
   }
+
+ @media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-photo img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    text-align: center;
+  }
+
+  section {
+    padding: 4rem 1.25rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-thumb {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .tl-item {
+    gap: 1rem;
+  }
+
+  .tl-body,
+  .award-item,
+  .contact-card,
+  .cert-card {
+    padding: 1rem;
+  }
+}
+ 
 </style>
 </head>
 <body>
