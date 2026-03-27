@@ -76,6 +76,26 @@
   position: relative;
   z-index: 1;
 }
+ .hero-layout{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:60px;
+  align-items:center;
+}
+
+.hero-photo{
+  display:flex;
+  justify-content:center;
+}
+
+.hero-photo img{
+  width:320px;
+  height:320px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 80px rgba(108,71,255,0.35);
+}
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(108,71,255,0.15); border: 1px solid rgba(108,71,255,0.4);
@@ -270,14 +290,29 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-content hero-inner">
-    <div class="hero-tag"><span class="dot"></span> Open to opportunities</div>
-    <h1 class="hero-name">Jeongwoo<br><span class="accent">Kim</span></h1>
-    <p class="hero-subtitle">Data Science student at Arizona State University with a 4.0 GPA — building ML pipelines, ETL systems, and data-driven products.</p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="https://linkedin.com/in/jadoonee" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+
+  <div class="hero-inner hero-layout">
+
+    <div class="hero-content">
+      <div class="hero-tag"><span class="dot"></span> Open to opportunities</div>
+
+      <h1 class="hero-name">Jeongwoo<br><span class="accent">Kim</span></h1>
+
+      <p class="hero-subtitle">
+        Data Science student at Arizona State University with a 4.0 GPA — building ML pipelines, ETL systems, and data-driven products.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="https://linkedin.com/in/jadoonee" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+        <a href="Jeongwoo_Kim_Resume.pdf" target="_blank" class="btn-ghost">Resume</a>
+      </div>
     </div>
+
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Jeongwoo Kim">
+    </div>
+
   </div>
 </section>
  
