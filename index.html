@@ -1,418 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeongwoo Kim | Data Science Portfolio</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f8fa;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .navbar {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .nav-links a {
-      margin-left: 24px;
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .nav-links a:hover {
-      color: #111827;
-    }
-
-    .hero {
-      padding: 90px 0 70px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: 3.2rem;
-      line-height: 1.15;
-      margin: 0 0 18px;
-      color: #111827;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: #4b5563;
-      max-width: 650px;
-      margin-bottom: 28px;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: #111827;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-    }
-
-    .btn-secondary {
-      background: white;
-      border: 1px solid #d1d5db;
-      color: #111827;
-    }
-
-    .btn-secondary:hover {
-      background: #f3f4f6;
-    }
-
-    .hero-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
-    }
-
-    .hero-card h3 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-size: 1rem;
-      color: #111827;
-    }
-
-    .hero-card p {
-      margin: 0 0 14px;
-      font-size: 0.95rem;
-    }
-
-    section {
-      padding: 30px 0 70px;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #111827;
-    }
-
-    .section-subtitle {
-      color: #6b7280;
-      margin-bottom: 30px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #111827;
-    }
-
-    .card .tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #4b5563;
-      margin-bottom: 16px;
-      font-size: 0.96rem;
-    }
-
-    .tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tools span {
-      font-size: 0.8rem;
-      background: #f3f4f6;
-      color: #374151;
-      border: 1px solid #e5e7eb;
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .resume-box {
-      margin-top: 18px;
-    }
-
-    .contact-box p {
-      margin: 8px 0;
-    }
-
-    .footer {
-      border-top: 1px solid #e5e7eb;
-      background: white;
-      padding: 24px 0;
-      text-align: center;
-      color: #6b7280;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .projects-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2.4rem;
-      }
-
-      .nav-inner {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-links a {
-        margin: 0 10px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .container {
-        width: 92%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeongwoo Kim – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --c1: #6C47FF; --c2: #FF6B6B; --c3: #00D9C0; --c4: #FFB347;
+    --bg: #0B0B0F; --surface: #13131A; --card: #1C1C26;
+    --text: #F0EEFF; --muted: #8880AA;
+    --radius: 16px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+ 
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--c1); border-radius: 4px; }
+ 
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(11,11,15,0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(108,71,255,0.15);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text); }
+  .nav-links { display: flex; gap: 1.8rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+ 
+  section { padding: 6rem 2rem; max-width: 960px; margin: 0 auto; }
+ 
+  #hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; padding-top: 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(108,71,255,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,217,192,0.12) 0%, transparent 70%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(108,71,255,0.15); border: 1px solid rgba(108,71,255,0.4);
+    border-radius: 999px; padding: 0.35rem 1rem;
+    font-size: 0.8rem; color: #A98FFF; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #00D9C0; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  h1.hero-name {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name .accent { color: var(--c1); }
+  .hero-subtitle {
+    font-size: 1.15rem; color: var(--muted); margin: 1.2rem 0 2rem;
+    line-height: 1.7; max-width: 520px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary {
+    padding: 0.75rem 1.8rem; background: var(--c1); color: #fff;
+    border: none; border-radius: 999px; font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(108,71,255,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(108,71,255,0.55); }
+  .btn-ghost {
+    padding: 0.75rem 1.8rem; background: transparent;
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 999px;
+    color: var(--text); font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; text-decoration: none; transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+ 
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+ 
+  .section-label {
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--c1); font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 3rem;
+  }
+  .section-title span { color: var(--c1); }
+ 
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .about-text { color: var(--muted); line-height: 1.8; font-size: 1rem; }
+  .about-text p + p { margin-top: 1rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card {
+    background: var(--card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-4px); border-color: var(--c1); }
+  .stat-number { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--c1); }
+  .stat-desc { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+ 
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--c1), var(--c3));
+  }
+  .tl-item {
+    display: flex; gap: 2rem; padding: 0 0 2.5rem 0;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .tl-item.visible { opacity: 1; transform: none; }
+  .tl-dot-wrap { flex-shrink: 0; width: 32px; display: flex; flex-direction: column; align-items: center; }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%; background: var(--c1);
+    border: 2px solid var(--bg); margin-top: 6px; flex-shrink: 0;
+    box-shadow: 0 0 10px var(--c1);
+  }
+  .tl-body {
+    flex: 1; background: var(--card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .tl-body:hover { border-color: rgba(108,71,255,0.4); }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; }
+  .tl-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; }
+  .tl-company { color: var(--c3); font-size: 0.9rem; margin-top: 2px; }
+  .tl-date {
+    font-size: 0.78rem; color: var(--muted);
+    background: rgba(255,255,255,0.05); border-radius: 999px;
+    padding: 0.25rem 0.75rem; white-space: nowrap;
+  }
+  .tl-bullets { margin-top: 1rem; padding-left: 1.2rem; }
+  .tl-bullets li { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.4rem; }
+ 
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .proj-card {
+    background: var(--card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.75rem;
+    cursor: default;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .proj-card.visible { opacity: 1; transform: none; }
+  .proj-card:hover { transform: translateY(-6px); border-color: var(--c1); box-shadow: 0 8px 40px rgba(108,71,255,0.2); }
+  .proj-icon {
+    width: 44px; height: 44px; border-radius: 12px; display: flex;
+    align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem;
+  }
+  .proj-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+  .proj-desc { color: var(--muted); font-size: 0.87rem; line-height: 1.7; margin-bottom: 1.2rem; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 999px;
+    background: rgba(108,71,255,0.12); color: #A98FFF;
+    border: 1px solid rgba(108,71,255,0.25);
+  }
+ 
+  .skills-wrapper { display: flex; flex-direction: column; gap: 2.5rem; }
+  .skill-group-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .skill-pill {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.55rem 1.1rem; border-radius: 999px;
+    font-size: 0.88rem; font-weight: 500;
+    border: 1px solid; cursor: default;
+    opacity: 0; transform: scale(0.85);
+    transition: opacity 0.4s, transform 0.4s, box-shadow 0.2s;
+  }
+  .skill-pill.visible { opacity: 1; transform: scale(1); }
+  .skill-pill:hover { box-shadow: 0 0 16px currentColor; }
+  .sp-purple { background: rgba(108,71,255,0.1); color: #A98FFF; border-color: rgba(108,71,255,0.35); }
+  .sp-teal   { background: rgba(0,217,192,0.1);  color: #00D9C0; border-color: rgba(0,217,192,0.35); }
+  .sp-coral  { background: rgba(255,107,107,0.1); color: #FF9A9A; border-color: rgba(255,107,107,0.35); }
+  .sp-amber  { background: rgba(255,179,71,0.1);  color: #FFB347; border-color: rgba(255,179,71,0.35); }
+ 
+  .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+  .award-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    background: var(--card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.2rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .award-item:hover { border-color: rgba(255,179,71,0.4); }
+  .award-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .award-title { font-weight: 500; font-size: 0.95rem; }
+  .award-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+ 
+  footer {
+    text-align: center; padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--muted); font-size: 0.85rem;
+  }
+  footer a { color: var(--c1); text-decoration: none; }
+ 
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .contact-card {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--card); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius); padding: 1.2rem 1.5rem;
+    text-decoration: none; color: var(--text);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .contact-card:hover { transform: translateY(-3px); border-color: var(--c1); }
+  .contact-icon { font-size: 1.5rem; }
+  .contact-label { font-size: 0.75rem; color: var(--muted); }
+  .contact-value { font-size: 0.9rem; font-weight: 500; }
+ 
+  @media (max-width: 640px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    nav { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.8rem; }
+  }
+</style>
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <div class="logo">Jeongwoo Kim</div>
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+ 
+<nav>
+  <span class="nav-logo">JK</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section id="hero" style="max-width:960px;margin:0 auto;padding-left:2rem;padding-right:2rem;">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="dot"></span> Open to opportunities</div>
+    <h1 class="hero-name">Jeongwoo<br><span class="accent">Kim</span></h1>
+    <p class="hero-subtitle">Data Science student at Arizona State University with a 4.0 GPA — building ML pipelines, ETL systems, and data-driven products.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="https://linkedin.com/in/jadoonee" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Who I am</p>
+  <h2 class="section-title">About <span>Me</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hi! I'm Jeongwoo, a Data Science student at Arizona State University maintaining a perfect 4.0 GPA. I'm passionate about turning raw data into actionable insights through machine learning, data engineering, and analytics.</p>
+      <p>From building large-scale energy data pipelines in Spain to training NLP models on 568K+ Amazon reviews, I love solving real-world problems with data at scale.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-number">4.0</div><div class="stat-desc">Cumulative GPA</div></div>
+      <div class="stat-card"><div class="stat-number">3+</div><div class="stat-desc">Years experience</div></div>
+      <div class="stat-card"><div class="stat-number">0.92</div><div class="stat-desc">Best ROC AUC</div></div>
+      <div class="stat-card"><div class="stat-number">568K+</div><div class="stat-desc">Reviews analyzed</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">My journey</p>
+  <h2 class="section-title">Work <span>Experience</span></h2>
+  <div class="timeline">
+ 
+    <div class="tl-item">
+      <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-header">
+          <div>
+            <div class="tl-role">Data Science Intern</div>
+            <div class="tl-company">Ectios</div>
+          </div>
+          <span class="tl-date">Aug 2025 – Oct 2025</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Designed large-scale data pipelines integrating national, transmission, and distribution datasets across Spain's energy network</li>
+          <li>Built automated ETL workflows in Python & AWS S3 for geospatial capacity data</li>
+          <li>Developed APIs serving real-time, location-based capacity insights</li>
+          <li>Collaborated on LLM-powered document extraction for the SolarBrio platform</li>
+        </ul>
       </div>
     </div>
-  </nav>
-
-  <header class="hero">
-    <div class="container hero-grid">
+ 
+    <div class="tl-item">
+      <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--c3);box-shadow:0 0 10px var(--c3)"></div></div>
+      <div class="tl-body">
+        <div class="tl-header">
+          <div>
+            <div class="tl-role">Global Career Accelerator</div>
+            <div class="tl-company">Arizona State University</div>
+          </div>
+          <span class="tl-date">Jan 2025 – May 2025</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Used SQL to extract, clean, and prepare data from multiple business datasets</li>
+          <li>Performed exploratory data analysis (EDA) in Python to identify trends</li>
+          <li>Created interactive Tableau dashboards for strategic business decisions</li>
+        </ul>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--c4);box-shadow:0 0 10px var(--c4)"></div></div>
+      <div class="tl-body">
+        <div class="tl-header">
+          <div>
+            <div class="tl-role">Winter Bootcamp</div>
+            <div class="tl-company">Techeer</div>
+          </div>
+          <span class="tl-date">Dec 2023 – Jan 2024</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Built REST APIs using Django and implemented a QR code generation service</li>
+          <li>Learned containerization fundamentals with Docker</li>
+        </ul>
+      </div>
+    </div>
+ 
+    <div class="tl-item">
+      <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--c2);box-shadow:0 0 10px var(--c2)"></div></div>
+      <div class="tl-body">
+        <div class="tl-header">
+          <div>
+            <div class="tl-role">CCPT Exercise Analyst</div>
+            <div class="tl-company">Combined Forces Command (U.S.–R.O.K.)</div>
+          </div>
+          <span class="tl-date">Apr 2022</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Analyzed scenario-based simulation data to support operational decision-making during a joint military exercise</li>
+        </ul>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">What I've built</p>
+  <h2 class="section-title">Featured <span>Projects</span></h2>
+  <div class="projects-grid">
+ 
+    <div class="proj-card">
+      <div class="proj-icon" style="background:rgba(108,71,255,0.15);">🤖</div>
+      <div class="proj-name">Credit Risk Prediction</div>
+      <div class="proj-desc">ML pipeline using PySpark to predict loan default risk. Achieved ROC AUC ≈ 0.92. Scaled to GCP Dataproc for large-scale distributed processing.</div>
+      <div class="proj-tags">
+        <span class="tag">PySpark</span><span class="tag">GCP Dataproc</span><span class="tag">Random Forest</span><span class="tag">Logistic Reg.</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <div class="proj-icon" style="background:rgba(0,217,192,0.15);">💬</div>
+      <div class="proj-name">Amazon Review Sentiment</div>
+      <div class="proj-desc">Binary sentiment classification on 568K+ reviews using NLP pipeline with TF-IDF. Boosted Naive Bayes negative F1 from 0.26 → 0.71 via hyperparameter tuning.</div>
+      <div class="proj-tags">
+        <span class="tag">NLP</span><span class="tag">TF-IDF</span><span class="tag">scikit-learn</span><span class="tag">Python</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <div class="proj-icon" style="background:rgba(255,107,107,0.15);">🔍</div>
+      <div class="proj-name">Bot Detection Model</div>
+      <div class="proj-desc">EDA in R to identify class imbalance, then built a decision tree to classify accounts as bots or humans. Visualized feature importance for interpretability.</div>
+      <div class="proj-tags">
+        <span class="tag">R</span><span class="tag">Decision Tree</span><span class="tag">EDA</span><span class="tag">Kaggle</span>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Toolbox</p>
+  <h2 class="section-title">Technical <span>Skills</span></h2>
+  <div class="skills-wrapper">
+ 
+    <div>
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-pills">
+        <span class="skill-pill sp-purple">🐍 Python</span>
+        <span class="skill-pill sp-purple">📊 R</span>
+        <span class="skill-pill sp-purple">🗄️ SQL</span>
+      </div>
+    </div>
+ 
+    <div>
+      <div class="skill-group-title">ML / Data</div>
+      <div class="skill-pills">
+        <span class="skill-pill sp-teal">pandas</span>
+        <span class="skill-pill sp-teal">numpy</span>
+        <span class="skill-pill sp-teal">scikit-learn</span>
+        <span class="skill-pill sp-teal">PySpark</span>
+        <span class="skill-pill sp-teal">NLP / TF-IDF</span>
+      </div>
+    </div>
+ 
+    <div>
+      <div class="skill-group-title">Cloud & Infrastructure</div>
+      <div class="skill-pills">
+        <span class="skill-pill sp-coral">GCP Dataproc</span>
+        <span class="skill-pill sp-coral">AWS S3</span>
+        <span class="skill-pill sp-coral">Docker</span>
+        <span class="skill-pill sp-coral">Django</span>
+      </div>
+    </div>
+ 
+    <div>
+      <div class="skill-group-title">Analytics & BI</div>
+      <div class="skill-pills">
+        <span class="skill-pill sp-amber">Tableau</span>
+        <span class="skill-pill sp-amber">EDA</span>
+        <span class="skill-pill sp-amber">Data Pipelines</span>
+        <span class="skill-pill sp-amber">ETL</span>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- AWARDS -->
+<section id="awards" style="padding-top:0;">
+  <p class="section-label">Recognition</p>
+  <h2 class="section-title">Awards & <span>Honors</span></h2>
+  <div class="awards-list">
+    <div class="award-item">
+      <div class="award-icon">🏆</div>
       <div>
-        <div class="eyebrow">Data Science Portfolio</div>
-        <h1>Data Science student focused on machine learning, data engineering, and scalable analytics.</h1>
-        <p>
-          I am a Data Science student at Arizona State University with experience in machine learning, ETL workflows, cloud based processing, and large scale data analysis using Python, SQL, AWS, and Google Cloud.
-        </p>
-        <div class="button-group">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="#contact">Contact</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>Quick Info</h3>
-        <p><strong>Education:</strong> Arizona State University</p>
-        <p><strong>Major:</strong> B.S. Data Science</p>
-        <p><strong>Graduation:</strong> May 2026</p>
-        <p><strong>GPA:</strong> 4.00</p>
-        <p><strong>Focus:</strong> Machine Learning, Data Pipelines, SQL, Cloud Analytics</p>
+        <div class="award-title">Dean's List</div>
+        <div class="award-sub">Arizona State University — 2019–2021, 2023–2025</div>
       </div>
     </div>
-  </header>
-
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-subtitle">A few projects that reflect my interests in machine learning, analytics, and data systems.</p>
-
-      <div class="projects-grid">
-        <div class="card">
-          <div class="tag">Machine Learning</div>
-          <h3>Credit Risk Prediction</h3>
-          <p>
-            Built a PySpark machine learning pipeline to predict loan default risk from financial and credit attributes. Trained and evaluated Logistic Regression and Random Forest models and achieved ROC AUC of about 0.92.
-          </p>
-          <div class="tools">
-            <span>PySpark</span>
-            <span>Python</span>
-            <span>Dataproc</span>
-            <span>Machine Learning</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tag">NLP</div>
-          <h3>Amazon Review Sentiment Classification</h3>
-          <p>
-            Analyzed more than 568K Amazon product reviews and developed a binary sentiment classification pipeline using text preprocessing, TF IDF features, and model comparison between Naive Bayes and Logistic Regression.
-          </p>
-          <div class="tools">
-            <span>Python</span>
-            <span>NLP</span>
-            <span>scikit-learn</span>
-            <span>TF IDF</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tag">Classification</div>
-          <h3>Bot Detection Model</h3>
-          <p>
-            Built a decision tree model to classify social media accounts as bots or humans. Performed exploratory data analysis, handled class imbalance, and visualized feature importance and model performance.
-          </p>
-          <div class="tools">
-            <span>R</span>
-            <span>Decision Tree</span>
-            <span>EDA</span>
-            <span>Data Visualization</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tag">Internship Experience</div>
-          <h3>ETL and Data Pipeline Work</h3>
-          <p>
-            Built automated ETL workflows in Python and AWS S3 to standardize heterogeneous geospatial capacity data into a unified analytics ready schema and supported downstream API and analytics use cases.
-          </p>
-          <div class="tools">
-            <span>Python</span>
-            <span>AWS S3</span>
-            <span>ETL</span>
-            <span>Data Validation</span>
-          </div>
-        </div>
+    <div class="award-item">
+      <div class="award-icon">🎖️</div>
+      <div>
+        <div class="award-title">3rd Place – R.O.K. Armed Forces UGC Contest</div>
+        <div class="award-sub">Awarded by the Minister of National Defense, Republic of Korea — 2022</div>
       </div>
     </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div class="card">
-          <h3>Background</h3>
-          <p>
-            I am interested in using data to solve practical problems through machine learning, structured analysis, and clear communication. My experience includes coursework, internship projects, and technical projects involving predictive modeling, SQL analysis, ETL workflows, and cloud based tools.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Technical Skills</h3>
-          <p><strong>Languages:</strong> Python, R, SQL</p>
-          <p><strong>Libraries and Tools:</strong> pandas, numpy, scikit-learn, PySpark, Tableau</p>
-          <p><strong>Cloud and Systems:</strong> Google Cloud Dataproc, AWS S3, Docker</p>
-          <div class="resume-box">
-            <a class="btn btn-primary" href="Jeongwoo_Kim_Resume.pdf" target="_blank">View Resume</a>
-          </div>
-        </div>
+    <div class="award-item">
+      <div class="award-icon">🎓</div>
+      <div>
+        <div class="award-title">New American University Scholar Scholarship</div>
+        <div class="award-sub">Arizona State University — 2019–2021</div>
       </div>
     </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="card contact-box">
-        <p><strong>Email:</strong> jwjw091912@gmail.com</p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/jadoonee" target="_blank">linkedin.com/in/jadoonee</a></p>
-        <p><strong>Location:</strong> Tempe, Arizona</p>
-      </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-title">Let's <span>Connect</span></h2>
+  <div class="contact-grid">
+    <a href="mailto:jwjw091912@gmail.com" class="contact-card">
+      <span class="contact-icon">✉️</span>
+      <div><div class="contact-label">Email</div><div class="contact-value">jwjw091912@gmail.com</div></div>
+    </a>
+    <a href="https://linkedin.com/in/jadoonee" target="_blank" class="contact-card">
+      <span class="contact-icon">💼</span>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/jadoonee</div></div>
+    </a>
+    <a href="tel:4806229124" class="contact-card">
+      <span class="contact-icon">📱</span>
+      <div><div class="contact-label">Phone</div><div class="contact-value">(480) 622-9124</div></div>
+    </a>
+    <div class="contact-card" style="cursor:default;">
+      <span class="contact-icon">📍</span>
+      <div><div class="contact-label">Location</div><div class="contact-value">Tempe, AZ</div></div>
     </div>
-  </section>
-
-  <footer class="footer">
-    © 2026 Jeongwoo Kim. All rights reserved.
-  </footer>
-
+  </div>
+</section>
+ 
+<footer>
+  <p>Jeongwoo Kim &nbsp;·&nbsp; <a href="https://linkedin.com/in/jadoonee">LinkedIn</a></p>
+</footer>
+ 
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      if (e.target.classList.contains('skill-pill')) {
+        const pills = e.target.closest('.skill-pills').querySelectorAll('.skill-pill');
+        pills.forEach((p, pi) => {
+          setTimeout(() => p.classList.add('visible'), pi * 60);
+        });
+      } else {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+      }
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+ 
+document.querySelectorAll('.tl-item, .proj-card, .skill-pill').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
