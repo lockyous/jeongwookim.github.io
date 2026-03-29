@@ -1023,6 +1023,55 @@
           rgba(0, 217, 192, 0.08) 40%,
           transparent 75%);
     }
+
+    /* SUMMARY MODE */
+
+    body.summary-mode nav {
+      position: static;
+      background: transparent;
+      border: none;
+    }
+
+    body.summary-mode #certificates,
+    body.summary-mode #awards,
+    body.summary-mode footer {
+      display: none;
+    }
+
+    body.summary-mode section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+    }
+
+    body.summary-mode #hero {
+      min-height: auto;
+      padding-top: 2rem;
+    }
+
+    body.summary-mode .hero-photo img {
+      width: 160px;
+      height: 160px;
+    }
+
+    body.summary-mode h1.hero-name {
+      font-size: 2.5rem;
+    }
+
+    body.summary-mode .hero-subtitle {
+      font-size: 0.9rem;
+    }
+
+    body.summary-mode .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    body.summary-mode .proj-desc {
+      display: none;
+    }
+
+    body.summary-mode .tl-bullets li:nth-child(n+3) {
+      display: none;
+    }
   </style>
 </head>
 
@@ -1038,6 +1087,8 @@
       <a href="#certificates">Certificates</a>
       <a href="#contact">Contact</a>
     </div>
+
+    <button id="toggleSummary" class="btn-ghost">Summary View</button>
   </nav>
 
   <!-- HERO -->
@@ -1566,6 +1617,21 @@
         closeProjectModal();
       }
     });
+
+    const summaryBtn = document.getElementById("toggleSummary");
+
+    summaryBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("summary-mode");
+
+      if (document.body.classList.contains("summary-mode")) {
+        summaryBtn.textContent = "Full View";
+      } else {
+        summaryBtn.textContent = "Summary View";
+      }
+
+    });
+
   </script>
 </body>
 
