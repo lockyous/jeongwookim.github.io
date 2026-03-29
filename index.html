@@ -1142,31 +1142,53 @@
         display: none !important;
       }
 
+      html,
       body {
-        background: white !important;
-        color: black !important;
-      }
-
-      #summaryPortfolio {
-        display: block !important;
-        padding: 0 !important;
+        background: #0B0B0F !important;
+        color: #F0EEFF !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       #fullPortfolio {
         display: none !important;
       }
 
-      .summary-page {
-        box-shadow: none;
-        border: 1px solid #ddd;
-        background: white;
+      #summaryPortfolio {
+        display: block !important;
+        padding: 0 !important;
+        min-height: auto !important;
       }
 
-      .summary-block p,
-      .summary-block li,
+      .summary-page {
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 24px !important;
+        background: #1C1C26 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: none !important;
+        border-radius: 24px !important;
+      }
+
+      .summary-block {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .summary-name,
+      .summary-block h3,
+      .section-label {
+        color: #F0EEFF !important;
+      }
+
+      .summary-role,
       .summary-links,
-      .summary-role {
-        color: #333 !important;
+      .summary-block p,
+      .summary-block li {
+        color: #C9C3E6 !important;
       }
     }
 
