@@ -5,6 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeongwoo Kim – Portfolio</title>
+
+  <meta property="og:title" content="Jeongwoo Kim Portfolio">
+  <meta property="og:description" content="Machine Learning · Data Engineering · Python">
+  <meta property="og:image" content="https://lockyous.github.io/preview.png">
+  <meta property="og:url" content="https://lockyous.github.io/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jeongwoo Kim Portfolio">
+  <meta name="twitter:description" content="Machine Learning · Data Engineering · Python">
+  <meta name="twitter:image" content="https://lockyous.github.io/preview.png">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
@@ -1024,10 +1036,6 @@
           transparent 75%);
     }
 
-    .view-switch {
-      display: flex;
-      gap: 0.75rem;
-    }
 
     #summaryPortfolio {
       min-height: 100vh;
@@ -1249,10 +1257,6 @@
       <a href="#contact">Contact</a>
     </div>
 
-    <div class="view-switch">
-      <button id="showFull" class="btn-ghost">Full View</button>
-      <button id="showSummary" class="btn-ghost">Summary View</button>
-    </div>
   </nav>
 
   <div id="fullPortfolio">
@@ -1861,25 +1865,6 @@
       if (e.target === modal) {
         closeProjectModal();
       }
-    });
-
-    const showFullBtn = document.getElementById("showFull");
-    const showSummaryBtn = document.getElementById("showSummary");
-    const fullPortfolio = document.getElementById("fullPortfolio");
-    const summaryPortfolio = document.getElementById("summaryPortfolio");
-
-    showFullBtn.addEventListener("click", () => {
-      document.body.classList.remove("summary-active");
-      fullPortfolio.style.display = "block";
-      summaryPortfolio.style.display = "none";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    showSummaryBtn.addEventListener("click", () => {
-      document.body.classList.add("summary-active");
-      fullPortfolio.style.display = "none";
-      summaryPortfolio.style.display = "block";
-      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
   </script>
